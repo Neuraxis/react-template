@@ -23,22 +23,24 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              // only enable hot in development
-              hmr: true,
-              // if hmr does not work, this is a forceful method.
-              reloadAll: true,
-            },
-          },
-          // { loader: 'style-loader' },
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     // only enable hot in development
+          //     hmr: true,
+          //     // if hmr does not work, this is a forceful method.
+          //     reloadAll: true,
+          //   },
+          // },
+          { loader: 'style-loader' },
           {
             loader: 'css-loader',
+            // options: { modules: true, importLoaders: 1 }
             // options: {
-            //   importLoaders: 1,
+            //   importLoaders: 2,
+            //   modules: true,
             //   modules: {
-            //     localIdentName: '[name]__[local]___[hash:base64:5]',
+            //     localIdentName: '[path][name]__[local]___[hash:base64:5]',
             //   },
             // },
           },

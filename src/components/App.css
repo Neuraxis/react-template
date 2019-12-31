@@ -4,5 +4,7 @@
 
 .app {
   background-color: lightblue;
-  
+  --sometest: 2em;
+  font-family: helvetica, arial, sans-serif;
+  padding: var(--sometest);
 }
