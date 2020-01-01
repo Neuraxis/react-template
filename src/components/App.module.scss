@@ -1,16 +1,13 @@
 $bg-color: yellow;
 $border-color: red;
-:global {
-  @import "tailwindcss/base";
-  @import "tailwindcss/components";
-  @import "tailwindcss/utilities";
-}
+
 
 .app {
   font-family: helvetica, arial, sans-serif;
   padding: var(--sometest);
   border: 5px solid $border-color;
   display: flex;
+  @apply bg-green-700;
 
   p {
     background-color: $bg-color;

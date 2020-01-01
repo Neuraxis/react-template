@@ -4,8 +4,6 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const context = resolve(__dirname, 'src')
-
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -24,54 +22,26 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        exclude: resolve(__dirname, '../../src/assets/styles'),
         use: [
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     // only enable hot in development
-          //     hmr: true,
-          //     // if hmr does not work, this is a forceful method.
-          //     reloadAll: true,
-          //   },
-          // },
           { loader: 'style-loader' },
-          // {
-          //   loader: 'babel-loader',
-          //   query: {
-          //     plugins: [
-          //       '@babel/transform-react-jsx',
-          //       [
-          //         'react-css-modules',
-          //         {
-          //           context,
-          //         },
-          //       ],
-          //     ],
-          //   },
-          // },
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[name]__[local]--[hash:base64:15]',              
+                localIdentName: '[name]__[local]--[hash:base64:15]',
               },
             },
           },
-
           { loader: 'postcss-loader' },
-          {
-            loader: 'sass-loader',
-            // options: {
-            //   // Prefer `dart-sass`
-            //   implementation: require('sass'),
-            // },
-          },
+          { loader: 'sass-loader' },
         ],
       },
-      // {
-      //   test: /\.(scss|sass)$/,
-      //   loaders: ['style-loader', { loader: 'css-loader', options: { importLoaders: 1 } }, 'postcss-loader', 'sass-loader'],
-      // },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        include: resolve(__dirname, '../../src/assets/styles'),
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'postcss-loader' }, { loader: 'sass-loader' }],
+      },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
