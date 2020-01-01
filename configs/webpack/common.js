@@ -4,6 +4,8 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const context = resolve(__dirname, 'src')
+
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -33,17 +35,29 @@ module.exports = {
           //   },
           // },
           { loader: 'style-loader' },
+          // {
+          //   loader: 'babel-loader',
+          //   query: {
+          //     plugins: [
+          //       '@babel/transform-react-jsx',
+          //       [
+          //         'react-css-modules',
+          //         {
+          //           context,
+          //         },
+          //       ],
+          //     ],
+          //   },
+          // },
           {
             loader: 'css-loader',
-            // options: { modules: true, importLoaders: 1 }
-            // options: {
-            //   importLoaders: 2,
-            //   modules: true,
-            //   modules: {
-            //     localIdentName: '[path][name]__[local]___[hash:base64:5]',
-            //   },
-            // },
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:15]',              
+              },
+            },
           },
+
           { loader: 'postcss-loader' },
           {
             loader: 'sass-loader',

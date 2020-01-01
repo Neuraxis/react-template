@@ -4,6 +4,8 @@ import App from './components/App'
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Test from './components/Test'
 
+// import './assets/scss/Global.scss'
+
 const rootEl = document.getElementById('root')
 
 const routing = (
