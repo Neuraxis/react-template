@@ -1,12 +1,36 @@
 {
     "compilerOptions": {
+        "importHelpers": true,
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6",
         "jsx": "react",
-        "lib": ["es5", "es6", "dom"]
+        "lib": [
+            "es5",
+            "es6",
+            "es7",
+            "dom"
+        ],
+        "baseUrl": "./src/",
+        "paths": {
+            "@components/*": [
+                "components/*"
+            ],
+            "@screens/*": [
+                "screens/*"
+            ],
+            "@models/*": [
+                "models/*"
+            ],
+            "@enums/*": [
+                "enums/*"
+            ]
+        }
     },
     "include": [
         "./src/**/*"

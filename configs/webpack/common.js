@@ -3,10 +3,14 @@ const { resolve } = require('path')
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const resolveTsAliases = require('./resolve-ts-aliases')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    modules: [resolve(__dirname, '../../src'), 'node_modules'],
+    plugins: [new TsconfigPathsPlugin()],
+    alias: resolveTsAliases(),
   },
   context: resolve(__dirname, '../../src'),
   module: {
