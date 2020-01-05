@@ -32,13 +32,19 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               modules: {
                 localIdentName: '[name]__[local]--[hash:base64:15]',
               },
             },
           },
           { loader: 'postcss-loader' },
-          { loader: 'sass-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {

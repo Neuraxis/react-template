@@ -2,6 +2,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.test {
-  background: purple;
+:root {
+  --color-cream: #f3f0e2;
+  $color-dark-blue: #2e364f;
+  $color-blue: #2d5d7c;
+  $colol-orange: #ef5939;
 }
